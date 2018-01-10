@@ -14,14 +14,14 @@ extern "C" {
     jstring Java_tw_ray_gles_1workshop_1kai_1niklas_MainActivity_stringFromJNI(
         JNIEnv *env, jobject /* this */);
     int Java_tw_ray_gles_1workshop_1kai_1niklas_MainActivity_main(
-        JNIEnv *env, jobject /* this */);
+        JNIEnv *env, jobject /* this */, int argc, jstring argv);
 
 }
 
 JNIEXPORT int JNICALL
 Java_tw_ray_gles_1workshop_1kai_1niklas_MainActivity_main(
         JNIEnv *env,
-        jobject /* this */, int argc, char **argv)
+        jobject /* this */, int argc, jstring argv)
 {
 
 

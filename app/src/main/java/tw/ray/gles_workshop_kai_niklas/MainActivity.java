@@ -24,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native String main();
+    public native String main(int argc, String argv);
     public native String stringFromJNI();
 }
