@@ -1,6 +1,5 @@
 package tw.ray.gles_workshop_kai_niklas;
 import android.content.Context;
-import android.opengl.GLES20;
 import android.opengl.GLES30;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
@@ -32,7 +31,10 @@ public class WorkshopGLSurfaceView extends GLSurfaceView {
 
         @Override
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-            GLES30.glClearColor(0f, 0f, 1f, 1f);
+            GLES30.glClearColor(0f, 0f, 1f, 0f);
+            // Set alpha to 0 or 1 will not affect the output result
+
+
         }
 
         @Override
