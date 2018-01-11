@@ -33,7 +33,7 @@ public class WorkshopGLSurfaceView extends GLSurfaceView {
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
             GLES30.glClearColor(0f, 0f, 1f, 0f);
             // Set alpha to 0 or 1 will not affect the output result
-
+            JNIManager.main(0, "");
 
         }
 
