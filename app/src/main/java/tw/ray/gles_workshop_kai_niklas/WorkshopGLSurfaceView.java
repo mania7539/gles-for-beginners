@@ -18,16 +18,21 @@ public class WorkshopGLSurfaceView extends GLSurfaceView {
     public WorkshopGLSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.workshopGLRenderer = new WorkshopGLRenderer(context);
-        setEGLContextClientVersion(3);
+//        setEGLContextClientVersion(3);
         setRenderer(workshopGLRenderer);
 
     }
 
     public static class WorkshopGLRenderer implements GLSurfaceView.Renderer {
         Context context;
+        Triangle triangle;     // ( NEW )
+        Square quad;           // ( NEW )
 
         public WorkshopGLRenderer(Context context) {
             this.context = context;
+
+            triangle = new Triangle();   // ( NEW )
+            quad = new Square();         // ( NEW )
         }
 
 
@@ -98,9 +103,15 @@ public class WorkshopGLSurfaceView extends GLSurfaceView {
 //            GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT);
             // Without the code ```GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT)```,
             //  GLES30.glClearColor(0f, 0f, 1f, 1f) in onSurfaceCreated() won't work correctly
-
-
             gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+
+            gl.glLoadIdentity();                            // Reset model-view matrix ( NEW )
+            gl.glTranslatef(-1.5f, 0.0f, -6.0f);    // Translate left and into the screen ( NEW )
+            triangle.draw(gl);                              // Draw triangle ( NEW )
+
+            // Translate right, relative to the previous translation ( NEW )
+            gl.glTranslatef(3.0f, 0.0f, 0.0f);
+            quad.draw(gl);                                  // Draw quad ( NEW )
 
         }
     }
